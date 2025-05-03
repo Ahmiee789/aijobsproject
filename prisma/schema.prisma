@@ -1,0 +1,110 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum UserRole {
+  APPLICANT
+  EMPLOYER
+}
+
+model User {
+  id           String   @id @default(uuid()) @map("user_id")
+  email        String   @unique
+  passwordHash String   @map("password_hash")
+  role         UserRole
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  resumes      Resume[]
+  jobs         Job[]
+  savedJobs    SavedJob[]
+  applications Application[]
+
+  @@map("users")
+}
+
+model Resume {
+  id         String   @id @default(uuid()) @map("resume_id")
+  userId     String   @map("user_id")
+  fileUrl    String   @map("file_url")
+  parsedText String?  @map("parsed_text")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("resumes")
+}
+
+model Job {
+  id          String   @id @default(uuid()) @map("job_id")
+  employerId  String   @map("employer_id")
+  title       String
+  company     String
+  location    String
+  salaryRange String?  @map("salary_range")
+  description String?
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  employer     User          @relation(fields: [employerId], references: [id])
+  savedBy      SavedJob[]
+  applications Application[]
+
+  @@map("jobs")
+}
+
+model SavedJob {
+  id        String   @id @default(uuid()) @map("saved_job_id")
+  userId    String   @map("user_id")
+  jobId     String   @map("job_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // Relations
+  user User @relation(fields: [userId], references: [id])
+  job  Job  @relation(fields: [jobId], references: [id])
+
+  @@unique([userId, jobId])
+  @@map("saved_jobs")
+}
+
+model Application {
+  id          String            @id @default(uuid()) @map("application_id")
+  jobId       String            @map("job_id")
+  applicantId String            @map("applicant_id")
+  resumeUrl   String?           @map("resume_url")
+  coverLetter String?           @map("cover_letter")
+  status      ApplicationStatus @default(PENDING)
+  createdAt   DateTime          @default(now()) @map("created_at")
+  updatedAt   DateTime          @updatedAt @map("updated_at")
+
+  // Relations
+  job       Job  @relation(fields: [jobId], references: [id])
+  applicant User @relation(fields: [applicantId], references: [id])
+
+  @@map("applications")
+}
+
+enum ApplicationStatus {
+  PENDING
+  REVIEWED
+  INTERVIEWED
+  REJECTED
+  HIRED
+}

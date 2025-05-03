@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "title": "Senior Lead Engineer/ Engineer, Electronic",
+    "company": "Simbury Limited",
+    "location": "Sha Tin, Sha Tin District",
+    "salary": "",
+    "match_score": 95,
+    "posted_ago": "5d ago",
+    "is_new": true,
+    "logo": ""
+  },
+  {
+    "id": 2,
+    "title": "System Engineer (System Admin)",
+    "company": "Clustertech Limited",
+    "location": "Sha Tin District",
+    "salary": "",
+    "match_score": 88,
+    "posted_ago": "5d ago",
+    "is_new": false,
+    "logo": "",
+    "details": [
+      "5-day work week, 15 days annual leave",
+      "Internal IT support and external cloud solutions",
+      "Fresh graduates are welcome"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Electronics Engineering Manager",
+    "company": "GP Electronics (HK) Limited",
+    "location": "Sha Tin District",
+    "salary": "",
+    "match_score": 82,
+    "posted_ago": "4d ago",
+    "is_new": false,
+    "logo": "",
+    "details": [
+      "Product Development, Elect. Design & Manufacture",
+      "System Architecture, Schematics, PCB Layouts",
+      "Develop, train and guide engineers"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Product Engineer/Manager (Fresh Grad welcome)",
+    "company": "ExcelNet Total HR Solutions",
+    "location": "Fo Tan, Sha Tin District",
+    "salary": "$26,000 - $38,000 per month",
+    "match_score": 78,
+    "posted_ago": "3d ago",
+    "is_new": false,
+    "logo": "",
+    "details": [
+      "Higher Diploma or Degree in Mechanical Engineering, Business or related field.",
+      "2+ years of experience in related disciplines in product development or design",
+      "Good communication and interpersonal skills; good written and spoken English"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Electronics Hardware Engineer(VTT342/J01)",
+    "company": "VTECH Corporate Services Ltd",
+    "location": "Tai Po District",
+    "salary": "",
+    "match_score": 75,
+    "posted_ago": "9h ago",
+    "is_new": true,
+    "logo": "",
+    "details": [
+      "Bachelor's degree in Electrical Engineering, Computer Engineering",
+      "3+ years of experience in product firmware and hardware development",
+      "5-day work, flexible working hour, double pay"
+    ]
+  }
+]

@@ -1,0 +1,212 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* Profile page form control styles */
+.profile-form-input {
+  @apply h-12 px-4 py-3 rounded-lg border border-neutral-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all;
+}
+
+.profile-form-textarea {
+  @apply min-h-[120px] px-4 py-3 rounded-lg border border-neutral-200 focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all;
+}
+
+/* Square edit/delete buttons */
+.square-button {
+  @apply w-10 h-10 flex items-center justify-center rounded-lg shadow-sm transition-all duration-300;
+}
+
+.square-button:hover {
+  @apply bg-blue-50 text-blue-600;
+}
+
+/* Card hover effects */
+.card-hover {
+  @apply transition-all duration-300 border border-transparent hover:border-blue-100 hover:shadow-lg rounded-lg;
+}
+
+:root {
+  /* Primary color - Blue */
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --primary-light: #60a5fa;
+  
+  /* Secondary color - Purple */
+  --secondary: #7c3aed;
+  --secondary-dark: #6d28d9;
+  --secondary-light: #a78bfa;
+  
+  /* Accent color - Teal */
+  --accent: #0d9488;
+  --accent-dark: #0f766e;
+  --accent-light: #2dd4bf;
+  
+  /* Background colors */
+  --background: #ffffff;
+  --background-alt: #f8fafc;
+  
+  /* Foreground colors */
+  --foreground: #0f172a;
+  --foreground-muted: #475569;
+  
+  /* Neutral colors */
+  --neutral-50: #f8fafc;
+  --neutral-100: #f1f5f9;
+  --neutral-200: #e2e8f0;
+  --neutral-300: #cbd5e1;
+  --neutral-400: #94a3b8;
+  --neutral-500: #64748b;
+  --neutral-600: #475569;
+  --neutral-700: #334155;
+  --neutral-800: #1e293b;
+  --neutral-900: #0f172a;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f172a;
+    --background-alt: #1e293b;
+    --foreground: #f8fafc;
+    --foreground-muted: #cbd5e1;
+    
+    /* Adjust colors for dark mode */
+    --primary: #60a5fa;
+    --primary-dark: #3b82f6;
+    --primary-light: #93c5fd;
+    
+    --secondary: #a78bfa;
+    --secondary-dark: #8b5cf6;
+    --secondary-light: #c4b5fd;
+    
+    --accent: #2dd4bf;
+    --accent-dark: #14b8a6;
+    --accent-light: #5eead4;
+  }
+}
+
+body {
+  background: var(--background-alt);
+  color: var(--foreground);
+  font-family: 'Space Grotesk', sans-serif;
+  line-height: 1.7;
+  letter-spacing: -0.01em;
+}
+
+/* Button styles */
+.btn-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-5 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md;
+}
+
+.btn-secondary {
+  @apply bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2.5 px-5 rounded-lg transition-all duration-200 shadow-sm hover:shadow-md;
+}
+
+.btn-outline {
+  @apply border-2 border-blue-600 text-blue-600 hover:bg-blue-50 font-semibold py-2.5 px-5 rounded-lg transition-all duration-200;
+}
+
+/* Card styles */
+.card {
+  @apply bg-white dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:shadow-lg transition-shadow duration-300;
+}
+
+/* Tag styles */
+.tag {
+  @apply inline-flex items-center px-3 py-1 rounded-lg text-sm font-medium;
+}
+
+.tag-primary {
+  @apply bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200;
+}
+
+.tag-secondary {
+  @apply bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200;
+}
+
+.tag-accent {
+  @apply bg-teal-100 text-teal-800 dark:bg-teal-900 dark:text-teal-200;
+}
+
+/* Override Tailwind classes with our custom variables */
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.bg-accent {
+  background-color: var(--accent);
+}
+
+.text-primary {
+  color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.border-primary {
+  border-color: var(--primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  body {
+    padding: 0;
+  }
+  
+  .container {
+    @apply px-4;
+  }
+}
+
+/* Additional professional touches */
+.section-title {
+  @apply text-2xl font-semibold text-neutral-900 dark:text-neutral-100 mb-6;
+}
+
+.input-label {
+  @apply block text-sm font-medium text-neutral-700 dark:text-neutral-300 mb-2;
+}
+
+.page-header {
+  @apply mb-8 border-b border-neutral-200 dark:border-neutral-700 pb-5;
+}
+
+/* AI-themed components */
+.ai-card {
+  @apply bg-white dark:bg-neutral-800 rounded-lg shadow-md overflow-hidden border border-neutral-200 dark:border-neutral-700 hover:shadow-lg transition-all duration-300;
+}
+
+.ai-gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400;
+}
+
+.ai-hover {
+  @apply transition-transform duration-300 hover:-translate-y-1;
+}
+
+.ai-focus {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-neutral-900;
+}
+
+/* AI-specific effects */
+.ai-glow {
+  @apply shadow-[0_0_15px_rgba(37,99,235,0.1)] dark:shadow-[0_0_15px_rgba(96,165,250,0.1)];
+}
+
+.ai-border {
+  @apply relative before:absolute before:inset-0 before:rounded-lg before:p-[1px] before:bg-gradient-to-r before:from-blue-500 before:via-purple-500 before:to-teal-500 before:-z-10;
+}
